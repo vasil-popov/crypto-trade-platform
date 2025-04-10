@@ -33,7 +33,6 @@ public class KrakenWebSocketClient extends WebSocketClient {
 
     @Override
     public void onMessage(String message) {
-        System.out.println("Raw message received: " + message);
         try {
             JsonNode jsonNode = objectMapper.readTree(message);
 
@@ -46,15 +45,6 @@ public class KrakenWebSocketClient extends WebSocketClient {
                         TickerService.updateTicker(symbol, ticker);
                     }
                 }
-            } else if (jsonNode.has("channel") && "heartbeat".equals(jsonNode.get("channel").asText())) {
-                System.out.println("Heartbeat received.");
-            } else if (jsonNode.has("event") && "subscriptionStatus".equals(jsonNode.get("event").asText())) {
-                System.out.println("Subscription status: " + message);
-                if (jsonNode.has("status") && "error".equals(jsonNode.get("status").asText())) {
-                    System.out.println("Subscription error: " + jsonNode.get("errorMessage").asText());
-                }
-            } else {
-                System.out.println("Unhandled message: " + message);
             }
         } catch (Exception e) {
             e.printStackTrace();
