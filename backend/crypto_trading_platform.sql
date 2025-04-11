@@ -1,5 +1,7 @@
 CREATE DATABASE crypto_trading_platform;
 
+use crypto_trading_platform;
+
 CREATE TABLE users (
 id INT AUTO_INCREMENT PRIMARY KEY,
 balance DECIMAL(18, 2) NOT NULL DEFAULT 10000.00,
