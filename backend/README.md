@@ -32,7 +32,7 @@ Compile the code using a terminal:
 
 
 Run the application using a terminal:
-### `java -cp ".;libs/*" com.crypto.platform.Main`
+### `java -cp ".;libs/*" com.crypto.platform.CryptoTradingApplication`
 
 (Use : instead of ; on Mac/Linux)
 
